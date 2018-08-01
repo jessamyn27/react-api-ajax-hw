@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-
 import Login from './Login';
 import MainContainer from './MainContainer';
 
@@ -10,7 +9,7 @@ class App extends Component {
 
     this.state = {
       logged: false,
-      username: ''
+      username: '',
       news: []
     }
   }
@@ -30,7 +29,8 @@ getNews = async () => {
   }
 }
  componentDidMount() {
-   this.getNews().then((data) => {
+   this.getNews().then((data) =>
+   {
      console.log(data, ' this is data'); this.setState({news: data})
    })
  }
@@ -51,9 +51,9 @@ this.setState({
     return (
       <div className="App">
          {this.state.logged ?
-        <MainContainer username={this.state.username}/> :
+        <MainContainer news={this.state.news}/> :
         <Login login={this.login}/>}
-        
+
       </div>
     );
   }
